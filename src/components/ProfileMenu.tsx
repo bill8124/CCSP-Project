@@ -2,7 +2,7 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
-  signInWithRedirect,
+  signInWithPopup,
   User,
 } from 'firebase/auth';
 import React, {useState} from 'react';
@@ -14,7 +14,7 @@ export function ProfileMenu() {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState<User | undefined>();
   const handleLogin = () => {
-    signInWithRedirect(auth, provider);
+    signInWithPopup(auth, provider);
   };
   onAuthStateChanged(auth, (user) => {
     if (user) {
